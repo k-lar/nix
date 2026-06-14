@@ -2,28 +2,27 @@
 
 let
   dotsDir = "${config.home.homeDirectory}/.dotfiles";
+
+  mkConfigLink = name: {
+    ".config/${name}".source =
+      config.lib.file.mkOutOfStoreSymlink
+      "${dotsDir}/${name}/.config/${name}";
+  };
+
+  mkTargetLink = { target, source ? target, base ? dotsDir }: {
+    "${target}".source =
+      config.lib.file.mkOutOfStoreSymlink "${base}/${source}";
+  };
 in
 
 {
-  # Home Manager needs a bit of information about you and the paths it should
-  # manage.
   home.username = "klar";
   home.homeDirectory = "/home/klar";
 
-  # This value determines the Home Manager release that your configuration is
-  # compatible with. This helps avoid breakage when a new Home Manager release
-  # introduces backwards incompatible changes.
-  #
-  # You should not change this value, even if you update Home Manager. If you do
-  # want to update the value, then make sure to first check the Home Manager
-  # release notes.
-  home.stateVersion = "24.11"; # Please read the comment before changing.
+  home.stateVersion = "26.05"; # Please read the comment before changing.
 
-  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # The home.packages option allows you to install Nix packages into your
-  # environment.
   home.packages = [
     pkgs.waybar
     pkgs.rofi-wayland
@@ -40,7 +39,7 @@ in
     pkgs.keyd
     pkgs.brightnessctl
     pkgs.discord
-    pkgs.swww
+    pkgs.awww
     pkgs.gcc
     pkgs.zoxide
     pkgs.xorg.xcursorthemes
@@ -53,6 +52,7 @@ in
     pkgs.slurp
     pkgs.satty
     pkgs.pandoc
+    pkgs.typst
     pkgs.texlivePackages.latex-bin
     pkgs.texlivePackages.latex-fonts
     pkgs.xdg-user-dirs
@@ -61,38 +61,102 @@ in
     pkgs.fzf
     pkgs.zathura
     pkgs.tmux
-
-    # # It is sometimes useful to fine-tune packages, for example, by applying
-    # # overrides. You can do that directly here, just don't forget the
-    # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
-    # # fonts?
-    # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
-
-    # # You can also create simple shell scripts directly inside your
-    # # configuration. For example, this adds a command 'my-hello' to your
-    # # environment:
-    # (pkgs.writeShellScriptBin "my-hello" ''
-    #   echo "Hello, ${config.home.username}!"
-    # '')
   ];
 
-  # Home Manager is pretty good at managing dotfiles. The primary way to manage
-  # plain files is through 'home.file'.
-  # home.file = {
-  #   # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-  #   # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-  #   # # symlink to the Nix store copy.
-  #   # ".screenrc".source = "dotfiles/screenrc";
-  #   # ".tmux.conf".source = ".dotfiles/tmux/.tmux.conf";
-  #
-  #   # # You can also set the file content immediately.
-  #   # ".gradle/gradle.properties".text = ''
-  #   #   org.gradle.console=verbose
-  #   #   org.gradle.daemon.idletimeout=3600000
-  #   # '';
-  # };
+  home.file = {
+    lib.mkMerge [
+        (mkConfigLink "alacritty")
+        (mkConfigLink "boomer")
+        (mkConfigLink "bspwm")
+        (mkConfigLink "dunst")
+        (mkConfigLink "emacs")
+        (mkConfigLink "fastfetch")
+        (mkConfigLink "fish")
+        (mkConfigLink "foot")
+        (mkConfigLink "ghostty")
+        (mkConfigLink "grugmark")
+        (mkConfigLink "hypr")
+        (mkConfigLink "kitty")
+        (mkConfigLink "mpv")
+        (mkConfigLink "nano")
+        (mkConfigLink "nvim")
+        (mkConfigLink "rofi")
+        (mkConfigLink "satty")
+        (mkConfigLink "thunar")
+        (mkConfigLink "waybar")
+        (mkConfigLink "xsettingsd")
+        (mkConfigLink "yazi")
+        (mkConfigLink "zathura")
 
-  # Here are dotfiles in the xdg-config directory. (~/.config)
+        (mkTargetLink {
+          target = ".tmux.conf";
+          source = "tmux/.tmux.conf";
+        })
+
+        (mkTargetLink {
+          target = ".Xresources";
+          source = "Xresources/.Xresources";
+        })
+
+        (mkTargetLink {
+          target = ".bashrc";
+          source = "bash/.bashrc";
+        })
+
+        (mkTargetLink {
+          target = ".bash_aliases";
+          source = "bash/.bash_aliases";
+        })
+
+        (mkTargetLink {
+          target = ".config/gtk";
+          source = "gtk/.config/gtk-3.0";
+        })
+
+        (mkTargetLink {
+          target = ".zshrc";
+          source = "zsh/.zshrc";
+        })
+
+        (mkTargetLink {
+          target = ".zsh";
+          source = "zsh/.zsh";
+        })
+    ];
+
+    # ".bashrc".source =
+    #   config.lib.file.mkOutOfStoreSymlink
+    #   "${dotsDir}/bash/.bashrc";
+    #
+    # ".bash_aliases".source =
+    #   config.lib.file.mkOutOfStoreSymlink
+    #   "${dotsDir}/bash/.bash_aliases";
+    #
+    # ".config/gtk".source =
+    #   config.lib.file.mkOutOfStoreSymlink
+    #   "${dotsDir}/gtk/.config/gtk-3.0";
+    #
+    # ".mpd".source =
+    #   config.lib.file.mkOutOfStoreSymlink
+    #   "${dotsDir}/mpd/.config/mpd";
+    #
+    # ".tmux.conf".source =
+    #   config.lib.file.mkOutOfStoreSymlink
+    #   "${dotsDir}/tmux/.tmux.conf";
+    #
+    # ".Xresources".source =
+    #   config.lib.file.mkOutOfStoreSymlink
+    #   "${dotsDir}/Xresources/.Xresources";
+    #
+    # ".zshrc".source =
+    #   config.lib.file.mkOutOfStoreSymlink
+    #   "${dotsDir}/zsh/.zshrc";
+    #
+    # ".zsh".source =
+    #   config.lib.file.mkOutOfStoreSymlink
+    #   "${dotsDir}/zsh/.zsh";
+  };
+
   xdg.configFile = {
     "discord/settings.json".text = ''
       {
@@ -129,31 +193,13 @@ in
 
   programs.git.enable = true;
 
-  # Home Manager can also manage your environment variables through
-  # 'home.sessionVariables'. These will be explicitly sourced when using a
-  # shell provided by Home Manager. If you don't want to manage your shell
-  # through Home Manager then you have to manually source 'hm-session-vars.sh'
-  # located at either
-  #
-  #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  ~/.local/state/nix/profiles/profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  /etc/profiles/per-user/klar/etc/profile.d/hm-session-vars.sh
-  #
   home.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "nvim";
     GIT_EDITOR = "nvim";
   };
 
-  # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  # Services
   services.udiskie.enable = true;
 }

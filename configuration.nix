@@ -11,33 +11,23 @@
       inputs.home-manager.nixosModules.default
     ];
 
-  # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.hostName = "klar-nixos";
+  networking.wireless.enable = true;
 
   # Download buffer size increase to disable warnings
   nix.settings.download-buffer-size = 524288000;
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # Enable networking
   networking.networkmanager.enable = true;
 
-  # Enable bluetooth
   hardware.bluetooth.enable = true;
 
-  # Set your time zone.
   time.timeZone = "Europe/Ljubljana";
 
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
   i18n.extraLocaleSettings = {
@@ -52,16 +42,13 @@
     LC_TIME = "sl_SI.UTF-8";
   };
 
-  # Configure keymap in X11
   services.xserver.xkb = {
     layout = "si";
     variant = "";
   };
 
-  # Configure console keymap
   console.keyMap = "slovene";
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.klar = {
     isNormalUser = true;
     description = "klar";
@@ -77,10 +64,8 @@
     };
   };
 
-  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # Ensure a proper wayland session
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
   };
@@ -103,23 +88,17 @@
     fish
   ];
 
-  # Enable UWSM
   programs.uwsm.enable = true;
 
-  # Enable hyprland
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
     withUWSM = true;
   };
-
-  # File manager (thunar)
-  programs.thunar.enable = true;
-
-  # Enable hyprland adjacent programs
   programs.hyprlock.enable = true;
 
-  # Enable fish shell
+  programs.thunar.enable = true;
+
   programs.fish.enable = true;
   users.defaultUserShell = pkgs.fish;
 
@@ -136,19 +115,6 @@
     nerd-fonts.symbols-only
     nerd-fonts.blex-mono
   ];
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
 
   # Display manager (SDDM)
   services.displayManager.sddm = {
@@ -210,18 +176,6 @@
   # Allow setting GTK themes from nix
   programs.dconf.enable = true;
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.11"; # Did you read the comment?
+  system.stateVersion = "26.05"; # Did you read the comment?
 
 }
