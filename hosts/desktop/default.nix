@@ -19,7 +19,7 @@
 
   users.users.klar = {
     isNormalUser = true;
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "keyd" ];
   };
 
   home-manager = {
