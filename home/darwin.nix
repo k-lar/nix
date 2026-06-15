@@ -5,4 +5,12 @@
   ];
 
   home.homeDirectory = "/Users/klar";
+
+  environment.variables = {
+    HOMEBREW_NO_AUTO_UPDATE = "1";
+  };
+
+  system.activationScripts.extraUserActivation.text = ''
+    launchctl setenv HOMEBREW_NO_AUTO_UPDATE 1
+  '';
 }
