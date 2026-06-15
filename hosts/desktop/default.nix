@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ inputs, ... }:
 
 {
   imports =
@@ -8,6 +8,7 @@
       ../../modules/linux/bluetooth.nix
       ../../modules/linux/hyprland.nix
       ../../modules/linux/networking.nix
+      ../../modules/shared/shell.nix
 
       inputs.home-manager.nixosModules.default
     ];
@@ -26,18 +27,6 @@
     extraSpecialArgs = { inherit inputs; };
     users.klar = import ../../home/linux.nix;
   };
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    chromium
-    librewolf-bin
-  ];
-
-  programs.thunar.enable = true;
-
-  programs.fish.enable = true;
-  users.defaultUserShell = pkgs.fish;
 
   system.stateVersion = "26.05";
 }
