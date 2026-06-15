@@ -1,3 +1,7 @@
+{ inputs }:
+let
+  lib = import ./lib { inherit inputs; };
+in
 {
   description = "Klar's NixOS flake config";
 
@@ -15,7 +19,7 @@
     # use "nixos", or your hostname as the name of the configuration
     # it's a better practice than "default" shown in the video
     nixosConfigurations.klar-nixos = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
+      specialArgs = { inherit inputs lib; };
       modules = [
         ./configuration.nix
         inputs.home-manager.nixosModules.default

@@ -1,17 +1,7 @@
-{ config, pkgs, lib, ... }:
+# TODO: SPLIT INTO MODULAR FILES IN home/ FOLDER!
+# MOST OF THIS IS REDUNDANT!
 
-let
-  dotsDir = "${config.home.homeDirectory}/.dotfiles";
-
-  mkLink = target: source: {
-    "${target}".source =
-      config.lib.file.mkOutOfStoreSymlink
-      "${dotsDir}/${source}";
-  };
-
-  mkConfig = name:
-    mkLink ".config/${name}" "${name}/.config/${name}";
-in
+{ pkgs, lib, ... }:
 
 {
   home.username = "klar";
@@ -63,35 +53,35 @@ in
 
   home.file = {
     lib.mkMerge = [
-        (mkConfig "alacritty")
-        (mkConfig "boomer")
-        (mkConfig "bspwm")
-        (mkConfig "dunst")
-        (mkConfig "emacs")
-        (mkConfig "fastfetch")
-        (mkConfig "fish")
-        (mkConfig "foot")
-        (mkConfig "ghostty")
-        (mkConfig "grugmark")
-        (mkConfig "hypr")
-        (mkConfig "kitty")
-        (mkConfig "mpv")
-        (mkConfig "nano")
-        (mkConfig "nvim")
-        (mkConfig "rofi")
-        (mkConfig "satty")
-        (mkConfig "thunar")
-        (mkConfig "waybar")
-        (mkConfig "xsettingsd")
-        (mkConfig "yazi")
-        (mkConfig "zathura")
-        (mkLink ".tmux.conf" "tmux/.tmux.conf")
-        (mkLink ".Xresources" "Xresources/.Xresources")
-        (mkLink ".bashrc" "bash/.bashrc")
-        (mkLink ".bash_aliases" "bash/.bash_aliases")
-        (mkLink ".config/gtk" "gtk/.config/gtk-3.0")
-        (mkLink ".zshrc" "zsh/.zshrc")
-        (mkLink ".zsh" "zsh/.zsh")
+        (lib.mkConfig "alacritty")
+        (lib.mkConfig "boomer")
+        (lib.mkConfig "bspwm")
+        (lib.mkConfig "dunst")
+        (lib.mkConfig "emacs")
+        (lib.mkConfig "fastfetch")
+        (lib.mkConfig "fish")
+        (lib.mkConfig "foot")
+        (lib.mkConfig "ghostty")
+        (lib.mkConfig "grugmark")
+        (lib.mkConfig "hypr")
+        (lib.mkConfig "kitty")
+        (lib.mkConfig "mpv")
+        (lib.mkConfig "nano")
+        (lib.mkConfig "nvim")
+        (lib.mkConfig "rofi")
+        (lib.mkConfig "satty")
+        (lib.mkConfig "thunar")
+        (lib.mkConfig "waybar")
+        (lib.mkConfig "xsettingsd")
+        (lib.mkConfig "yazi")
+        (lib.mkConfig "zathura")
+        (lib.mkLink ".tmux.conf" "tmux/.tmux.conf")
+        (lib.mkLink ".Xresources" "Xresources/.Xresources")
+        (lib.mkLink ".bashrc" "bash/.bashrc")
+        (lib.mkLink ".bash_aliases" "bash/.bash_aliases")
+        (lib.mkLink ".config/gtk" "gtk/.config/gtk-3.0")
+        (lib.mkLink ".zshrc" "zsh/.zshrc")
+        (lib.mkLink ".zsh" "zsh/.zsh")
     ];
 
     # ".bashrc".source =

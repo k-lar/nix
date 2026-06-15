@@ -2,8 +2,9 @@
 
 {
   home.packages = with pkgs; [
-    waybar
-    rofi-wayland
+    noctalia-shell
+    rofi
+    foot
 
     hyprland
     hyprlock
@@ -17,6 +18,7 @@
     slurp
     satty
 
+    networkmanagerapplet
     brightnessctl
     udiskie
     zathura

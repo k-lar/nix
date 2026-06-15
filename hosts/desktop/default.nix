@@ -3,7 +3,12 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+      ../../hardware-configuration.nix
+      ../../modules/linux/audio.nix
+      ../../modules/linux/bluetooth.nix
+      ../../modules/linux/hyprland.nix
+      ../../modules/linux/networking.nix
+
       inputs.home-manager.nixosModules.default
     ];
 
@@ -14,43 +19,25 @@
 
   users.users.klar = {
     isNormalUser = true;
-    description = "klar";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
   };
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
-    users = {
-      "klar" = import ./home.nix;
-    };
+    users.klar = import ../../home/linux.nix;
   };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    neovim
-    wget
-    git
     chromium
     librewolf-bin
-    curl
-    foot
-    uwsm
-    fish
-    sddm-sugar-dark
-    libsForQt5.qt5.qtgraphicaleffects
-    networkmanagerapplet
-    fish
   ];
 
   programs.thunar.enable = true;
 
   programs.fish.enable = true;
   users.defaultUserShell = pkgs.fish;
-
-  # Allow setting GTK themes from nix
-  programs.dconf.enable = true;
 
   system.stateVersion = "26.05";
 }

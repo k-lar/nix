@@ -1,9 +1,10 @@
-{ pkgs, ... }:
+{ pkgs }:
 
 {
   home.packages = with pkgs; [
+    wget
     neovim
-    git
+    curl
     tmux
     ripgrep
     fzf
