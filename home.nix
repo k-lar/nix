@@ -3,16 +3,14 @@
 let
   dotsDir = "${config.home.homeDirectory}/.dotfiles";
 
-  mkConfigLink = name: {
-    ".config/${name}".source =
+  mkLink = target: source: {
+    "${target}".source =
       config.lib.file.mkOutOfStoreSymlink
-      "${dotsDir}/${name}/.config/${name}";
+      "${dotsDir}/${source}";
   };
 
-  mkTargetLink = { target, source ? target, base ? dotsDir }: {
-    "${target}".source =
-      config.lib.file.mkOutOfStoreSymlink "${base}/${source}";
-  };
+  mkConfig = name:
+    mkLink ".config/${name}" "${name}/.config/${name}";
 in
 
 {
@@ -64,64 +62,36 @@ in
   ];
 
   home.file = {
-    lib.mkMerge [
-        (mkConfigLink "alacritty")
-        (mkConfigLink "boomer")
-        (mkConfigLink "bspwm")
-        (mkConfigLink "dunst")
-        (mkConfigLink "emacs")
-        (mkConfigLink "fastfetch")
-        (mkConfigLink "fish")
-        (mkConfigLink "foot")
-        (mkConfigLink "ghostty")
-        (mkConfigLink "grugmark")
-        (mkConfigLink "hypr")
-        (mkConfigLink "kitty")
-        (mkConfigLink "mpv")
-        (mkConfigLink "nano")
-        (mkConfigLink "nvim")
-        (mkConfigLink "rofi")
-        (mkConfigLink "satty")
-        (mkConfigLink "thunar")
-        (mkConfigLink "waybar")
-        (mkConfigLink "xsettingsd")
-        (mkConfigLink "yazi")
-        (mkConfigLink "zathura")
-
-        (mkTargetLink {
-          target = ".tmux.conf";
-          source = "tmux/.tmux.conf";
-        })
-
-        (mkTargetLink {
-          target = ".Xresources";
-          source = "Xresources/.Xresources";
-        })
-
-        (mkTargetLink {
-          target = ".bashrc";
-          source = "bash/.bashrc";
-        })
-
-        (mkTargetLink {
-          target = ".bash_aliases";
-          source = "bash/.bash_aliases";
-        })
-
-        (mkTargetLink {
-          target = ".config/gtk";
-          source = "gtk/.config/gtk-3.0";
-        })
-
-        (mkTargetLink {
-          target = ".zshrc";
-          source = "zsh/.zshrc";
-        })
-
-        (mkTargetLink {
-          target = ".zsh";
-          source = "zsh/.zsh";
-        })
+    lib.mkMerge = [
+        (mkConfig "alacritty")
+        (mkConfig "boomer")
+        (mkConfig "bspwm")
+        (mkConfig "dunst")
+        (mkConfig "emacs")
+        (mkConfig "fastfetch")
+        (mkConfig "fish")
+        (mkConfig "foot")
+        (mkConfig "ghostty")
+        (mkConfig "grugmark")
+        (mkConfig "hypr")
+        (mkConfig "kitty")
+        (mkConfig "mpv")
+        (mkConfig "nano")
+        (mkConfig "nvim")
+        (mkConfig "rofi")
+        (mkConfig "satty")
+        (mkConfig "thunar")
+        (mkConfig "waybar")
+        (mkConfig "xsettingsd")
+        (mkConfig "yazi")
+        (mkConfig "zathura")
+        (mkLink ".tmux.conf" "tmux/.tmux.conf")
+        (mkLink ".Xresources" "Xresources/.Xresources")
+        (mkLink ".bashrc" "bash/.bashrc")
+        (mkLink ".bash_aliases" "bash/.bash_aliases")
+        (mkLink ".config/gtk" "gtk/.config/gtk-3.0")
+        (mkLink ".zshrc" "zsh/.zshrc")
+        (mkLink ".zsh" "zsh/.zsh")
     ];
 
     # ".bashrc".source =
@@ -190,8 +160,6 @@ in
         fi;
       '';
   };
-
-  programs.git.enable = true;
 
   home.sessionVariables = {
     EDITOR = "nvim";
