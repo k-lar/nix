@@ -15,13 +15,19 @@ in
     };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: {
-    # use "nixos", or your hostname as the name of the configuration
-    # it's a better practice than "default" shown in the video
-    nixosConfigurations.klar-nixos = nixpkgs.lib.nixosSystem {
-      specialArgs = { inherit inputs lib; };
-      modules = [
-        ./configuration.nix
+  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+  let
+    mkSystem = system: modules:
+      nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = { inherit inputs lib; };
+        modules = modules;
+      };
+  in
+  {
+    nixosConfigurations = {
+      klar-nixos = mkSystem "x86_64-linux" [
+        ./hosts/desktop
         inputs.home-manager.nixosModules.default
       ];
     };

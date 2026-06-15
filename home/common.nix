@@ -1,6 +1,7 @@
 {
   imports = [
     ./modules/packages-common.nix
+    ./modules/dotfiles-common.nix
     ./../modules/shared/general.nix
     ./../modules/shared/git.nix
     ./../modules/shared/fonts.nix

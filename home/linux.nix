@@ -2,6 +2,7 @@
   imports = [
     ./common.nix
     ./modules/packages-linux.nix
+    ./modules/wallpapers.nix
   ];
 
   home.homeDirectory = "/home/klar";

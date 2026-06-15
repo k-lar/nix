@@ -1,17 +1,16 @@
 { inputs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ../../hardware-configuration.nix
-      ../../modules/linux/audio.nix
-      ../../modules/linux/bluetooth.nix
-      ../../modules/linux/hyprland.nix
-      ../../modules/linux/networking.nix
-      ../../modules/shared/shell.nix
+  imports = [
+    ../../hardware-configuration.nix
 
-      inputs.home-manager.nixosModules.default
-    ];
+    ../../modules/shared/shell.nix
+
+    ../../modules/linux/audio.nix
+    ../../modules/linux/bluetooth.nix
+    ../../modules/linux/hyprland.nix
+    ../../modules/linux/networking.nix
+  ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
