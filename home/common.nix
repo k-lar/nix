@@ -6,7 +6,6 @@
 
     ./../modules/shared/general.nix
     ./../modules/shared/git.nix
-    ./../modules/shared/fonts.nix
     ./../modules/shared/shell.nix
   ];
 

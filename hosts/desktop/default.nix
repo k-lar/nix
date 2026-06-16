@@ -5,6 +5,7 @@
     ../../hardware-configuration.nix
 
     ../../modules/shared/shell.nix
+    ../../modules/shared/fonts.nix
 
     ../../modules/linux/audio.nix
     ../../modules/linux/bluetooth.nix

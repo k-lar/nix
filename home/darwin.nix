@@ -6,7 +6,7 @@
 
   home.homeDirectory = "/Users/klar";
 
-  environment.variables = {
+  home.sessionVariables = {
     HOMEBREW_NO_AUTO_UPDATE = "1";
   };
 
