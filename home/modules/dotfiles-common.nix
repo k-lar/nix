@@ -1,4 +1,4 @@
-{ klarLib  }:
+{ klarLib, ... }:
 
 {
   lib.mkMerge = [
