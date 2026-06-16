@@ -1,21 +1,21 @@
-{ lib  }:
+{ klarLib  }:
 
 {
   lib.mkMerge = [
-    (lib.mkConfig "alacritty")
-    (lib.mkConfig "emacs")
-    (lib.mkConfig "fastfetch")
-    (lib.mkConfig "fish")
-    (lib.mkConfig "ghostty")
-    (lib.mkConfig "grugmark")
-    (lib.mkConfig "mpv")
-    (lib.mkConfig "nano")
-    (lib.mkConfig "nvim")
-    (lib.mkConfig "yazi")
-    (lib.mkLink ".tmux.conf" "tmux/.tmux.conf")
-    (lib.mkLink ".bashrc" "bash/.bashrc")
-    (lib.mkLink ".bash_aliases" "bash/.bash_aliases")
-    (lib.mkLink ".zshrc" "zsh/.zshrc")
-    (lib.mkLink ".zsh" "zsh/.zsh")
+    (klarLib.mkConfig "alacritty")
+    (klarLib.mkConfig "emacs")
+    (klarLib.mkConfig "fastfetch")
+    (klarLib.mkConfig "fish")
+    (klarLib.mkConfig "ghostty")
+    (klarLib.mkConfig "grugmark")
+    (klarLib.mkConfig "mpv")
+    (klarLib.mkConfig "nano")
+    (klarLib.mkConfig "nvim")
+    (klarLib.mkConfig "yazi")
+    (klarLib.mkLink ".tmux.conf" "tmux/.tmux.conf")
+    (klarLib.mkLink ".bashrc" "bash/.bashrc")
+    (klarLib.mkLink ".bash_aliases" "bash/.bash_aliases")
+    (klarLib.mkLink ".zshrc" "zsh/.zshrc")
+    (klarLib.mkLink ".zsh" "zsh/.zsh")
   ];
 }

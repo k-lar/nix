@@ -1,20 +1,20 @@
-{ lib  }:
+{ klarLib  }:
 
 {
   lib.mkMerge = [
-     (lib.mkConfig "boomer")
-     (lib.mkConfig "bspwm")
-     (lib.mkConfig "dunst")
-     (lib.mkConfig "foot")
-     (lib.mkConfig "hypr")
-     (lib.mkConfig "kitty")
-     (lib.mkConfig "rofi")
-     (lib.mkConfig "satty")
-     (lib.mkConfig "thunar")
-     (lib.mkConfig "waybar")
-     (lib.mkConfig "xsettingsd")
-     (lib.mkConfig "zathura")
-     (lib.mkLink ".config/gtk" "gtk/.config/gtk-3.0")
-     (lib.mkLink ".Xresources" "Xresources/.Xresources")
+     (klarLib.mkConfig "boomer")
+     (klarLib.mkConfig "bspwm")
+     (klarLib.mkConfig "dunst")
+     (klarLib.mkConfig "foot")
+     (klarLib.mkConfig "hypr")
+     (klarLib.mkConfig "kitty")
+     (klarLib.mkConfig "rofi")
+     (klarLib.mkConfig "satty")
+     (klarLib.mkConfig "thunar")
+     (klarLib.mkConfig "waybar")
+     (klarLib.mkConfig "xsettingsd")
+     (klarLib.mkConfig "zathura")
+     (klarLib.mkLink ".config/gtk" "gtk/.config/gtk-3.0")
+     (klarLib.mkLink ".Xresources" "Xresources/.Xresources")
   ];
 }

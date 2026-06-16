@@ -18,19 +18,19 @@
 
   outputs = { self, nixpkgs, home-manager, darwin, ... }@inputs:
   let
-    lib = import ./lib { inherit inputs; };
+    klarLib = import ./lib { inherit inputs; };
 
     mkSystem = system: modules:
       nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = { inherit inputs lib; };
+        specialArgs = { inherit inputs klarLib; };
         modules = modules;
       };
 
     mkDarwin = system: modules:
       darwin.lib.darwinSystem {
         inherit system;
-        specialArgs = { inherit inputs lib; };
+        specialArgs = { inherit inputs klarLib; };
         modules = modules;
       };
   in
