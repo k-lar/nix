@@ -15,7 +15,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "klar-nixos";
+  networking.hostName = "klar-pc";
 
   users.users.klar = {
     isNormalUser = true;

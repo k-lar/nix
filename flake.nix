@@ -37,7 +37,7 @@
       };
   in
   {
-    nixosConfigurations.klar-nixos = mkSystem "x86_64-linux" [
+    nixosConfigurations.klar-pc = mkSystem "x86_64-linux" [
       ./hosts/desktop
       inputs.home-manager.nixosModules.default
     ];
