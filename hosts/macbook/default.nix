@@ -1,4 +1,4 @@
-{ inputs }:
+{ inputs, ... }:
 
 {
   networking.hostName = "klar-macbook";
