@@ -9,8 +9,10 @@
       "rectangle-pro"
       "keka"
       "keycastr"
+      "hiddenbar"
       "pearcleaner"
       "raycast"
+      "ghostty"
       "windows-app"
       "chromium"
     ];
