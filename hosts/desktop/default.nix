@@ -4,11 +4,11 @@
   imports = [
     ../../hardware-configuration.nix
 
-    ../../modules/shared/shell.nix
     ../../modules/shared/fonts.nix
 
     ../../modules/linux/audio.nix
     ../../modules/linux/bluetooth.nix
+    ../../modules/linux/shell.nix
     ../../modules/linux/hyprland.nix
     ../../modules/linux/networking.nix
   ];

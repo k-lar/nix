@@ -1,6 +1,11 @@
 { inputs, ... }:
 
 {
+  imports = [
+    ../../modules/darwin/homebrew.nix
+    ../../modules/darwin/shell.nix
+  ];
+
   networking.hostName = "klar-macbook";
 
   system.stateVersion = 5;

@@ -1,3 +1,5 @@
+{ ... }:
+
 {
   imports = [
     ./modules/packages-common.nix
@@ -6,7 +8,6 @@
 
     ./../modules/shared/general.nix
     ./../modules/shared/git.nix
-    ./../modules/shared/shell.nix
   ];
 
   home.username = "klar";

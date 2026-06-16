@@ -8,7 +8,7 @@
 
     gc = {
       automatic = true;
-      dates = "weekly";
+      frequency = "weekly";
       persistent = true;
       options = "--delete-older-than 30d";
     };
