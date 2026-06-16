@@ -1,6 +1,8 @@
 { inputs, ... }:
 
 {
+  system.primaryUser = "klar";
+
   imports = [
     ../../modules/darwin/homebrew.nix
     ../../modules/darwin/shell.nix

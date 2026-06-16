@@ -2,7 +2,6 @@
 
 {
   home.packages = with pkgs; [
-    chromium
     librewolf
     wget
     neovim

@@ -8,10 +8,11 @@
       "alt-tab"
       "rectangle-pro"
       "keka"
-      "keycaster"
+      "keycastr"
       "pearcleaner"
       "raycast"
       "windows-app"
+      "chromium"
     ];
 
     onActivation.cleanup = "uninstall";
