@@ -9,13 +9,10 @@
 
     gc = {
       automatic = true;
-      dates = "weekly";
-      persistent = true;
+      interval = { Weekday = 0; Hour = 3; Minute = 0; };
       options = "--delete-older-than 30d";
     };
   };
-
-  nixpkgs.config.allowUnfree = true;
 }
 
 

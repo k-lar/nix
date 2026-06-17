@@ -11,6 +11,7 @@
     ../../modules/linux/shell.nix
     ../../modules/linux/hyprland.nix
     ../../modules/linux/networking.nix
+    ../../modules/linux/nix-settings.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -27,6 +28,8 @@
     extraSpecialArgs = { inherit inputs; };
     backupFileExtension = "backup";
     users.klar = import ../../home/linux.nix;
+    useGlobalPkgs = true;
+    useUserPackages = true;
   };
 
   system.stateVersion = "26.05";

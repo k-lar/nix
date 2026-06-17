@@ -24,14 +24,14 @@
       nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = { inherit inputs klarLib; };
-        modules = modules;
+        modules = modules ++ [{ nixpkgs.config.allowUnfree = true; }];
       };
 
     mkDarwin = system: modules:
       darwin.lib.darwinSystem {
         inherit system;
         specialArgs = { inherit inputs klarLib; };
-        modules = modules;
+        modules = modules ++ [{ nixpkgs.config.allowUnfree = true; }];
       };
   in
   {
