@@ -25,6 +25,7 @@
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
+    backupFileExtension = "backup";
     users.klar = import ../../home/linux.nix;
   };
 

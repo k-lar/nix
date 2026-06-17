@@ -20,5 +20,17 @@
 
   programs.home-manager.enable = true;
 
+  programs.discord.enable = true;
+  # Stop discord from trying to update in the awful linux way
+  xdg.configFile = {
+    "discord/settings.json".text = ''
+      {
+        "debugLogging": false,
+        "IS_MAXIMIZED": true,
+        "IS_MINIMIZED": false,
+        "SKIP_HOST_UPDATE": true
+      }'';
+  };
+
   home.stateVersion = "26.05";
 }

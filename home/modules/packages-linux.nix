@@ -7,6 +7,7 @@
     rofi
     foot
     thunar
+    discord
 
     hyprland
     hyprlock
