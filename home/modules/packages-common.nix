@@ -4,6 +4,7 @@
   home.packages = with pkgs; [
     librewolf
     wget
+    keepassxc
     neovim
     tree-sitter
     discord

@@ -7,6 +7,7 @@
     ./modules/get-dotfiles.nix
 
     ./../modules/shared/git.nix
+    ./../modules/shared/syncthing.nix
   ];
 
   home.username = "klar";
