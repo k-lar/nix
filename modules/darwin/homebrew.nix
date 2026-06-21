@@ -18,14 +18,8 @@
       "tailscale-app"
     ];
 
-    brews = [
-      "neovim"
-      "eza"
-      "bat"
-      "fzf"
-      "zoxide"
-      "typst"
-    ];
+    # Formulae (idk why they're called brews)
+    brews = [];
 
     onActivation.cleanup = "uninstall";
     onActivation.autoUpdate = false;
