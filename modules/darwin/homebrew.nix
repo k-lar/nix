@@ -15,6 +15,16 @@
       "ghostty"
       "windows-app"
       "chromium"
+      "tailscale-app"
+    ];
+
+    brews = [
+      "neovim"
+      "eza"
+      "bat"
+      "fzf"
+      "zoxide"
+      "typst"
     ];
 
     onActivation.cleanup = "uninstall";

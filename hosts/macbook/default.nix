@@ -7,6 +7,7 @@
     ../../modules/darwin/homebrew.nix
     ../../modules/darwin/shell.nix
     ../../modules/darwin/nix-settings.nix
+    ../../modules/darwin/keyboard.nix
   ];
 
   networking.hostName = "klar-macbook";
@@ -34,25 +35,5 @@
     backupFileExtension = "backup";
     useGlobalPkgs = true;
     useUserPackages = true;
-  };
-
-  nix = {
-    settings = {
-      trusted-users = [ "root" "klar" ];
-
-      experimental-features = [
-        "nix-command"
-        "flakes"
-      ];
-
-      auto-optimise-store = true;
-      download-buffer-size = 524288000;
-    };
-
-    gc = {
-      automatic = true;
-      interval = { Weekday = 0; Hour = 3; Minute = 0; };
-      options = "--delete-older-than 30d";
-    };
   };
 }
