@@ -6,6 +6,8 @@
     wget
     keepassxc
     neovim
+    direnv
+    nix-direnv
     tree-sitter
     discord
     curl

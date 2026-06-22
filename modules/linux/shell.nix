@@ -10,6 +10,9 @@
       nrt = "sudo nixos-rebuild test --flake ~/git/nix#klar-pc";
       nrb = "sudo nixos-rebuild boot --flake ~/git/nix#klar-pc";
     };
+    interactiveShellInit = ''
+      direnv hook fish | source
+    '';
   };
   users.defaultUserShell = pkgs.fish;
 }

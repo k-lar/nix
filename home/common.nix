@@ -19,6 +19,8 @@
   };
 
   programs.home-manager.enable = true;
+  programs.direnv.enable = true;
+  programs.direnv.nix-direnv.enable = true;
 
   programs.discord.enable = true;
   # Stop discord from trying to update in the awful linux way
