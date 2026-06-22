@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    disko.url = "github:nix-community/disko";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
@@ -38,6 +39,7 @@
     nixosConfigurations.klar-pc = mkSystem "x86_64-linux" [
       ./hosts/desktop
       inputs.home-manager.nixosModules.default
+      inputs.disko.nixosModules.disko
     ];
 
     darwinConfigurations.klar-macbook = mkDarwin "aarch64-darwin" [

@@ -8,10 +8,12 @@
 
     ../../modules/linux/audio.nix
     ../../modules/linux/bluetooth.nix
+    ../../modules/linux/disko.nix
     ../../modules/linux/shell.nix
     ../../modules/linux/hyprland.nix
     ../../modules/linux/networking.nix
     ../../modules/linux/nix-settings.nix
+    ../../modules/linux/zram.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
