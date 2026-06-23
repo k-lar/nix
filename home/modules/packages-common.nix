@@ -19,6 +19,7 @@
     eza
     jq
     nodejs
+    obsidian
     go
     gcc
     pandoc
