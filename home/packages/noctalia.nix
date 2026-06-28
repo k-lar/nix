@@ -37,6 +37,9 @@
           ];
           right = [
             {
+              id = "Screen Recorder";
+            }
+            {
               alwaysShowPercentage = false;
               id = "Battery";
               warningThreshold = 30;
