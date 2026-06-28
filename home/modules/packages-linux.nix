@@ -29,7 +29,6 @@
 
     networkmanagerapplet
     brightnessctl
-    udiskie
     zathura
   ];
 }
