@@ -21,6 +21,7 @@
     jq
     nodejs
     obsidian
+    fastfetch
     go
     gcc
     pandoc
