@@ -25,5 +25,7 @@
     gcc
     pandoc
     typst
+    unrar
+    zip
   ];
 }
