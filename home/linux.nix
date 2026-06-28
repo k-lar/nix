@@ -16,6 +16,5 @@
 
   xdg.userDirs.enable = true;
   xdg.userDirs.createDirectories = true;
-  xdg.portal.config.portal.hyprland.preferred = [ "hyprland" "gtk" ];
   services.udiskie.enable = true;
 }
