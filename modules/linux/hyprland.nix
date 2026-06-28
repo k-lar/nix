@@ -1,4 +1,8 @@
+{ inputs, ...}:
+
 {
+  imports = [inputs.silentSDDM.nixosModules.default];
+
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
   };
@@ -17,6 +21,10 @@
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
-    theme = "sugar-dark";
+  };
+  
+  programs.silentSDDM = {
+    enable = true;
+    theme = "default";
   };
 }
