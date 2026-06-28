@@ -1,4 +1,4 @@
-{ inputs, ...}:
+{ inputs, pkgs, ... }:
 
 {
   imports = [inputs.silentSDDM.nixosModules.default];
@@ -17,6 +17,16 @@
 
   programs.hyprlock.enable = true;
   services.hypridle.enable = true;
+
+  # Screen sharing in Wayland apps (e.g., Discord) needs the system portal service.
+  xdg.portal = {
+    enable = true;
+    xdgOpenUsePortal = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-hyprland
+      xdg-desktop-portal-gtk
+    ];
+  };
 
   services.displayManager.sddm = {
     enable = true;

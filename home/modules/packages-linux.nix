@@ -3,12 +3,13 @@
 {
   home.packages = with pkgs; [
     awww
+    btop
+    gdu
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     rofi
     foot
     kitty
     thunar
-    discord
     ddcutil
     quickshell
     chromium

@@ -24,6 +24,7 @@
 
   programs.discord = {
     enable = true;
+    package = pkgs.discord-canary;
     settings = {
       debugLogging = false;
       IS_MAXIMIZED = true;

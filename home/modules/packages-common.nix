@@ -10,7 +10,6 @@
     direnv
     nix-direnv
     tree-sitter
-    discord
     curl
     tmux
     ripgrep

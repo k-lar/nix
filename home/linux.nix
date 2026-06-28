@@ -15,7 +15,5 @@
   xdg.userDirs.enable = true;
   xdg.userDirs.createDirectories = true;
 
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
-
   services.udiskie.enable = true;
 }
