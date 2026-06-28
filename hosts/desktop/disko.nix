@@ -3,9 +3,7 @@
 {
   disko.devices.disk.main = {
     type = "disk";
-    # TODO: Need to fix this when installing on actual device for the first time
-    # Just a placeholder for now
-    device = "/dev/disk/by-id/REPLACE_ME";
+    device = "/dev/disk/by-id/nvme-Samsung_SSD_990_PRO_1TB_S7HDNL0YA14101A";
 
     content = {
       type = "gpt";
