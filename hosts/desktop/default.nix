@@ -1,18 +1,20 @@
-{ inputs, ... }:
+{ lib, inputs, ... }:
 
 {
   imports = [
     ./hardware-configuration.nix
+    ./disko.nix
 
     ../../modules/shared/fonts.nix
 
     ../../modules/linux/audio.nix
     ../../modules/linux/bluetooth.nix
-    ../../modules/linux/disko.nix
     ../../modules/linux/shell.nix
     ../../modules/linux/hyprland.nix
+    ../../modules/linux/keyd.nix
     ../../modules/linux/networking.nix
     ../../modules/linux/nix-settings.nix
+    ../../modules/linux/steam.nix
     ../../modules/linux/zram.nix
   ];
 
@@ -26,12 +28,18 @@
     extraGroups = [ "networkmanager" "wheel" "docker" "keyd" ];
   };
 
+  security.polkit.enable = true;
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  hardware.i2c.enable = true;
+
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     backupFileExtension = "backup";
-    users.klar = import ../../home/linux.nix;
     useGlobalPkgs = true;
     useUserPackages = true;
+    users.klar = {
+      imports = [ ../../home/linux.nix ];
+    };
   };
 
   system.stateVersion = "26.05";
