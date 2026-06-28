@@ -4,6 +4,7 @@
   home.packages = with pkgs; [
     librewolf
     wget
+    vscode
     keepassxc
     neovim
     direnv

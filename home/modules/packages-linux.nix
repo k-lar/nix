@@ -1,25 +1,33 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   home.packages = with pkgs; [
     awww
-    noctalia-shell
+    inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     rofi
     foot
+    kitty
     thunar
     discord
+    ddcutil
+    quickshell
+    chromium
 
-    hyprland
     hyprlock
     hypridle
     hyprpicker
-    hyprcursor
+    wf-recorder
+
+    gamescope-wsi
+    heroic
+    mangohud
 
     wl-clipboard
     cliphist
 
     grim
     slurp
+    thunar
     satty
 
     networkmanagerapplet
