@@ -9,6 +9,7 @@
 
     ../../modules/linux/audio.nix
     ../../modules/linux/bluetooth.nix
+    ../../modules/linux/locale.nix
     ../../modules/linux/shell.nix
     ../../modules/linux/hyprland.nix
     ../../modules/linux/keyd.nix
