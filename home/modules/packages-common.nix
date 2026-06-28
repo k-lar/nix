@@ -27,5 +27,6 @@
     typst
     unrar
     zip
+    unzip
   ];
 }
