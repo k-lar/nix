@@ -4,6 +4,7 @@
   imports = [
     ./hardware-configuration.nix
     ./disko.nix
+    ./other-disks.nix
 
     ../../modules/shared/fonts.nix
     ../../modules/shared/gtk.nix
@@ -31,8 +32,18 @@
   };
 
   security.polkit.enable = true;
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "/home/klar/.steam/compatibilitytools.d";
+  };
+  
   hardware.i2c.enable = true;
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+    };
+
+  services.xserver.videoDrivers = [ "amdgpu" ];
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
