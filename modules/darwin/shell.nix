@@ -8,6 +8,7 @@
       nfc = "nix flake check ~/git/nix";
       nrs = "sudo darwin-rebuild switch --flake ~/git/nix#klar-macbook";
       nrt = "sudo darwin-rebuild check --flake ~/git/nix#klar-macbook";
+      ngc = "sudo nix-collect-garbage -d";
     };
     interactiveShellInit = ''
       function mkdev

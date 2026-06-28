@@ -9,6 +9,7 @@
       nrs = "sudo nixos-rebuild switch --flake ~/git/nix#klar-pc";
       nrt = "sudo nixos-rebuild test --flake ~/git/nix#klar-pc";
       nrb = "sudo nixos-rebuild boot --flake ~/git/nix#klar-pc";
+      ngc = "sudo nix-collect-garbage -d; sudo nixos-rebuild boot --flake ~/git/nix#klar-pc";
     };
     interactiveShellInit = ''
       function mkdev
