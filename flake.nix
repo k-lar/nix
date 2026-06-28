@@ -5,6 +5,14 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     disko.url = "github:nix-community/disko";
+    noctalia = {
+      url = "github:noctalia-dev/noctalia/legacy-v4";
+      inputs.nixpkgs.follows = "unstable";
+    };
+    silentSDDM = {
+      url = "github:uiriansan/SilentSDDM";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
@@ -19,19 +27,17 @@
 
   outputs = { self, nixpkgs, home-manager, darwin, ... }@inputs:
   let
-    klarLib = import ./lib { inherit inputs; };
-
     mkSystem = system: modules:
       nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = { inherit inputs klarLib; };
+        specialArgs = { inherit inputs; };
         modules = modules ++ [{ nixpkgs.config.allowUnfree = true; }];
       };
 
     mkDarwin = system: modules:
       darwin.lib.darwinSystem {
         inherit system;
-        specialArgs = { inherit inputs klarLib; };
+        specialArgs = { inherit inputs; };
         modules = modules ++ [{ nixpkgs.config.allowUnfree = true; }];
       };
   in
