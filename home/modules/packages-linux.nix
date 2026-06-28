@@ -19,10 +19,6 @@
     hyprpicker
     wf-recorder
 
-    gamescope-wsi
-    heroic
-    mangohud
-
     wl-clipboard
     cliphist
 

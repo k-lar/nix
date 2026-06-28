@@ -6,6 +6,7 @@
     inputs.noctalia.homeModules.default
     ./modules/cursor.nix
     ./modules/packages-linux.nix
+    ./modules/packages-gaming.nix
     ./modules/dotfiles-linux.nix
     ./modules/wallpapers.nix
     ./packages/noctalia.nix
