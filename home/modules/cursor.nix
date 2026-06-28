@@ -1,9 +1,6 @@
 { pkgs, ... }:
 
 {
-  programs.dconf.enable = true;
-  gtk.enable = true;
-
   home.pointerCursor = {
     package = pkgs.adwaita-icon-theme;
     name = "Adwaita";

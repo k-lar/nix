@@ -6,6 +6,7 @@
     ./disko.nix
 
     ../../modules/shared/fonts.nix
+    ../../modules/shared/gtk.nix
 
     ../../modules/linux/audio.nix
     ../../modules/linux/bluetooth.nix
