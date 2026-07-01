@@ -5,6 +5,7 @@
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
+    GTK_THEME = "gruvbox-dark-gtk";
   };
 
   programs.uwsm.enable = true;
@@ -17,6 +18,7 @@
 
   programs.hyprlock.enable = true;
   services.hypridle.enable = true;
+  services.tumbler.enable = true;
 
   # Screen sharing in Wayland apps (e.g., Discord) needs the system portal service.
   xdg.portal = {
