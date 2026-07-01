@@ -29,7 +29,6 @@ in
     (mkConfig "waybar")
     (mkConfig "xsettingsd")
     (mkConfig "zathura")
-    (mkLink ".config/gtk" "gtk/.config/gtk-3.0")
     (mkLink ".local/share/rofi/themes/rounded-gruvbox.rasi" "rofi/.local/share/rofi/themes/rounded-gruvbox.rasi")
   ];
 }
