@@ -13,6 +13,7 @@
     ddcutil
     quickshell
     chromium
+    dconf-editor
 
     hyprlock
     hypridle
@@ -29,6 +30,11 @@
 
     networkmanagerapplet
     brightnessctl
+    qbittorrent
+    mpv
+    loupe
+    cloc
+    
     zathura
   ];
 }
