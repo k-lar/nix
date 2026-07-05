@@ -14,6 +14,14 @@
     quickshell
     chromium
     dconf-editor
+    nicotine-plus
+    orca-slicer
+    kid3-qt
+    flac
+    gapless
+    qemu
+    virt-viewer
+    virt-manager
 
     hyprlock
     hypridle
@@ -34,7 +42,7 @@
     mpv
     loupe
     cloc
-    
+
     zathura
   ];
 }
