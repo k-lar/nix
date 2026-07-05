@@ -7,7 +7,7 @@
     mangohud
     protonup-ng
     protontricks
-    wine
+    wineWow64Packages.full
     winetricks
     lutris
   ];
