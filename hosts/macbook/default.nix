@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   system.primaryUser = "klar";
@@ -11,6 +11,15 @@
   ];
 
   networking.hostName = "klar-macbook";
+
+  launchd.user.agents.colima = {
+    serviceConfig = {
+      RunAtLoad = true;
+      KeepAlive = true;
+    };
+
+    command = "${pkgs.colima}/bin/colima start --foreground";
+  };
 
   system.stateVersion = 5;
 
