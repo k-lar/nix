@@ -28,5 +28,7 @@
     unrar
     zip
     unzip
+    opencode
+    opencode-desktop
   ];
 }
