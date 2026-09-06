@@ -10,5 +10,6 @@
     wineWow64Packages.full
     winetricks
     lutris
+    beammp-launcher
   ];
 }

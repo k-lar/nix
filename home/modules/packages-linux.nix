@@ -1,5 +1,8 @@
 { pkgs, inputs, ... }:
 
+let
+  unstable = inputs.unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+in
 {
   home.packages = with pkgs; [
     awww
@@ -15,13 +18,20 @@
     chromium
     dconf-editor
     nicotine-plus
-    orca-slicer
+    unstable.orca-slicer
+    onlyoffice-desktopeditors
     kid3-qt
     flac
     gapless
     qemu
     virt-viewer
     virt-manager
+    file-roller
+    bambu-studio
+    docker
+    docker-compose
+    docker-buildx
+    lazydocker
 
     hyprlock
     hypridle

@@ -3,6 +3,7 @@
 {
   home.packages = with pkgs; [
     librewolf
+    emacs
     wget
     vscode
     keepassxc
