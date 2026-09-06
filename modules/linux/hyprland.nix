@@ -20,6 +20,20 @@
   services.hypridle.enable = true;
   services.tumbler.enable = true;
 
+  environment.systemPackages = [ pkgs.hyprpolkitagent ];
+
+  systemd.user.services.hyprpolkitagent = {
+    description = "Hyprland Polkit authentication agent";
+    wantedBy = [ "graphical-session.target" ];
+    after = [ "graphical-session.target" ];
+    serviceConfig = {
+      Type = "simple";
+      ExecStart = "${pkgs.hyprpolkitagent}/libexec/hyprpolkitagent";
+      Restart = "on-failure";
+      RestartSec = 1;
+    };
+  };
+
   # Screen sharing in Wayland apps (e.g., Discord) needs the system portal service.
   xdg.portal = {
     enable = true;
