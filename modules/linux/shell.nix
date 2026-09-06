@@ -4,6 +4,11 @@
   programs.fish.enable = true;
   programs.fish = {
     shellAliases = {
+      fpl = "flatpak --user list";
+      fpd = "sed -n '1,120p' ~/git/nix/home/modules/flatpaks.nix";
+      fplock = "flatpak-lock ~/git/nix/flatpak-lock.json";
+      fplockshow = "sed -n '1,160p' ~/git/nix/flatpak-lock.json";
+      fpr = "flatpak --user run";
       nfu = "nix flake update ~/git/nix";
       nfc = "nix flake check ~/git/nix";
       nrs = "sudo nixos-rebuild switch --flake ~/git/nix#klar-pc";

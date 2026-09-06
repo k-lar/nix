@@ -1,0 +1,8 @@
+[
+  {
+    "id": "io.missioncenter.MissionCenter",
+    "origin": "flathub",
+    "ref": "app/io.missioncenter.MissionCenter/x86_64/stable",
+    "commit": "98dd962a3249d6d51682698040ef88f60bf415f497acee625c836be35c5158eb"
+  }
+]
