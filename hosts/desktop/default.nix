@@ -1,4 +1,4 @@
-{ lib, inputs, ... }:
+{ lib, inputs, pkgs, ... }:
 
 {
   imports = [
@@ -14,7 +14,9 @@
     ../../modules/linux/locale.nix
     ../../modules/linux/shell.nix
     ../../modules/linux/hyprland.nix
+    ../../modules/linux/flatpak.nix
     ../../modules/linux/keyd.nix
+    ../../modules/linux/nix-ld.nix
     ../../modules/linux/networking.nix
     ../../modules/linux/nix-settings.nix
     ../../modules/linux/steam.nix
@@ -28,7 +30,7 @@
 
   users.users.klar = {
     isNormalUser = true;
-    extraGroups = [ "networkmanager" "wheel" "docker" "keyd" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "keyd" "input" ];
   };
 
   security.polkit.enable = true;
@@ -36,7 +38,7 @@
     NIXOS_OZONE_WL = "1";
     STEAM_EXTRA_COMPAT_TOOLS_PATHS = "/home/klar/.steam/compatibilitytools.d";
   };
-  
+
   hardware.i2c.enable = true;
   hardware.graphics = {
     enable = true;
@@ -44,6 +46,13 @@
     };
 
   services.xserver.videoDrivers = [ "amdgpu" ];
+
+  virtualisation.docker.enable = true;
+
+  # Logitech G29 wheel support
+  hardware.new-lg4ff.enable = true;
+  services.udev.packages = [ pkgs.oversteer ];
+  environment.systemPackages = with pkgs; [ oversteer ];
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
