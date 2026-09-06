@@ -27,7 +27,6 @@ in
     virt-viewer
     virt-manager
     file-roller
-    bambu-studio
     docker
     docker-compose
     docker-buildx
