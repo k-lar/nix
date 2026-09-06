@@ -30,5 +30,6 @@ in
     (mkConfig "xsettingsd")
     (mkConfig "zathura")
     (mkLink ".local/share/rofi/themes/rounded-gruvbox.rasi" "rofi/.local/share/rofi/themes/rounded-gruvbox.rasi")
+    (mkLink ".local/state/noctalia/settings.toml" "noctalia/.local/state/noctalia/settings.toml")
   ];
 }

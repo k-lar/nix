@@ -9,7 +9,6 @@
     ./modules/packages-gaming.nix
     ./modules/dotfiles-linux.nix
     ./modules/wallpapers.nix
-    ./packages/noctalia.nix
   ];
 
   home.homeDirectory = "/home/klar";
@@ -69,6 +68,13 @@
       gtk-theme = "gruvbox-dark-gtk";
       icon-theme = "gruvbox-dark-icons-gtk";
       color-scheme = "prefer-dark";
+    };
+  };
+
+  programs.noctalia = {
+    enable = true;
+    settings = {
+      plugins.enabled = [ "noctalia/screen_recorder" ];
     };
   };
 

@@ -8,7 +8,6 @@ in
     awww
     btop
     gdu
-    inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     rofi
     foot
     kitty
@@ -35,7 +34,6 @@ in
     hyprlock
     hypridle
     hyprpicker
-    wf-recorder
 
     wl-clipboard
     cliphist

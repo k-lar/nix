@@ -47,12 +47,22 @@
 
   services.xserver.videoDrivers = [ "amdgpu" ];
 
+  security.wrappers.gsr-kms-server = {
+    owner = "root";
+    group = "root";
+    capabilities = "cap_sys_admin+ep";
+    source = "${pkgs.gpu-screen-recorder}/bin/gsr-kms-server";
+  };
+
   virtualisation.docker.enable = true;
 
   # Logitech G29 wheel support
   hardware.new-lg4ff.enable = true;
   services.udev.packages = [ pkgs.oversteer ];
-  environment.systemPackages = with pkgs; [ oversteer ];
+  environment.systemPackages = with pkgs; [
+    oversteer
+    gpu-screen-recorder
+  ];
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
