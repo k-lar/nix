@@ -74,7 +74,10 @@
   programs.noctalia = {
     enable = true;
     settings = {
-      plugins.enabled = [ "noctalia/screen_recorder" ];
+      plugins.enabled = [
+        "noctalia/screen_recorder"
+        "yuuto/calculator"
+      ];
     };
   };
 
