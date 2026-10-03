@@ -16,6 +16,19 @@
       nrb = "sudo nixos-rebuild boot --flake ~/git/nix#klar-pc";
       ngc = "sudo nix-collect-garbage -d; sudo nixos-rebuild boot --flake ~/git/nix#klar-pc";
     };
+    shellInit = ''
+      if test -n "$NIX_LD_LIBRARY_PATH"
+        if set -q LD_LIBRARY_PATH
+          set -gx LD_LIBRARY_PATH "$NIX_LD_LIBRARY_PATH:$LD_LIBRARY_PATH"
+        else
+          set -gx LD_LIBRARY_PATH "$NIX_LD_LIBRARY_PATH"
+        end
+      end
+
+      if test -d "$HOME/.local/share/python/user/bin"
+        fish_add_path --prepend "$HOME/.local/share/python/user/bin"
+      end
+    '';
     interactiveShellInit = ''
       function mkdev
         set template_dir "$HOME/git/nix/templates/devshell"

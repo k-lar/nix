@@ -13,15 +13,16 @@ in
     kitty
     thunar
     ddcutil
-    quickshell
     chromium
     dconf-editor
     nicotine-plus
     unstable.orca-slicer
     onlyoffice-desktopeditors
+    pwvucontrol
     kid3-qt
     flac
     gapless
+    crosspipe
     qemu
     virt-viewer
     virt-manager
@@ -38,10 +39,12 @@ in
     wl-clipboard
     cliphist
 
+    gopls
     grim
     slurp
     thunar
     satty
+    sone
 
     networkmanagerapplet
     brightnessctl

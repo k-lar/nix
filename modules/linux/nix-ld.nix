@@ -1,4 +1,9 @@
-{ pkgs, ... }:
+{ lib, pkgs, config, ... }:
+
+let
+  nixLdLibPath = lib.makeLibraryPath config.programs.nix-ld.libraries;
+  pipewireJackLib = "${pkgs.pipewire.jack}/lib";
+in
 
 {
   programs.nix-ld.enable = true;
@@ -46,4 +51,8 @@
     alsa-lib
     udev
   ];
+
+  # Make these libraries visible for runtime-loaded Python extensions (e.g. PySide6/Shiboken)
+  # in addition to generic dynamically linked binaries.
+  environment.variables.LD_LIBRARY_PATH = lib.mkForce "${pipewireJackLib}:${nixLdLibPath}";
 }

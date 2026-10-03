@@ -5,6 +5,7 @@
     ./common.nix
     inputs.noctalia.homeModules.default
     ./modules/cursor.nix
+    ./modules/python-user-venv.nix
     ./modules/packages-linux.nix
     ./modules/packages-gaming.nix
     ./modules/dotfiles-linux.nix
