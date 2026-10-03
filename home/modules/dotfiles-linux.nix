@@ -25,11 +25,11 @@ in
     (mkConfig "kitty")
     (mkConfig "rofi")
     (mkConfig "satty")
-    (mkConfig "thunar")
     (mkConfig "waybar")
     (mkConfig "xsettingsd")
     (mkConfig "zathura")
     (mkLink ".local/share/rofi/themes/rounded-gruvbox.rasi" "rofi/.local/share/rofi/themes/rounded-gruvbox.rasi")
     (mkLink ".local/state/noctalia/settings.toml" "noctalia/.local/state/noctalia/settings.toml")
+    (mkLink ".config/Thunar/uca.xml" "thunar/.config/Thunar/uca.xml")
   ];
 }

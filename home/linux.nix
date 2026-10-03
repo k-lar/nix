@@ -17,6 +17,13 @@
   xdg.userDirs.enable = true;
   xdg.userDirs.createDirectories = true;
 
+  xdg.terminal-exec = {
+    enable = true;
+    settings = {
+      default = [ "foot.desktop" ];
+    };
+  };
+
   home.packages =
     lib.optionals (pkgs ? kvantum) [ pkgs.kvantum ]
     ++ lib.optionals (pkgs ? kdePackages && pkgs.kdePackages ? qtstyleplugin-kvantum) [
@@ -70,6 +77,10 @@
       icon-theme = "gruvbox-dark-icons-gtk";
       color-scheme = "prefer-dark";
     };
+  };
+
+  home.sessionVariables = {
+    XDG_TERMINAL_EMULATOR = "foot";
   };
 
   programs.noctalia = {
