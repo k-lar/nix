@@ -14,6 +14,15 @@ let
       config.lib.file.mkOutOfStoreSymlink
         "${dotsDir}/${source}";
   };
+
+  mkLinkForce = target: source: {
+    ${target} = {
+      force = true;
+      source =
+        config.lib.file.mkOutOfStoreSymlink
+          "${dotsDir}/${source}";
+    };
+  };
 in
 {
   home.file = lib.mkMerge [
@@ -30,6 +39,6 @@ in
     (mkConfig "zathura")
     (mkLink ".local/share/rofi/themes/rounded-gruvbox.rasi" "rofi/.local/share/rofi/themes/rounded-gruvbox.rasi")
     (mkLink ".local/state/noctalia/settings.toml" "noctalia/.local/state/noctalia/settings.toml")
-    (mkLink ".config/Thunar/uca.xml" "thunar/.config/Thunar/uca.xml")
+    (mkLinkForce ".config/Thunar/uca.xml" "thunar/.config/Thunar/uca.xml")
   ];
 }
