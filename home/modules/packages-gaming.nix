@@ -10,6 +10,7 @@
     wineWow64Packages.full
     winetricks
     lutris
+    r2modman
     beammp-launcher
   ];
 }
