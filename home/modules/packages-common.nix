@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   home.packages = with pkgs; [
@@ -29,7 +29,7 @@
     unrar
     zip
     unzip
-    opencode
-    opencode-desktop
+    inputs.unstable.legacyPackages.${pkgs.system}.opencode
+    inputs.unstable.legacyPackages.${pkgs.system}.opencode-desktop
   ];
 }
