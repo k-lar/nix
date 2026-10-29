@@ -29,7 +29,7 @@
     unrar
     zip
     unzip
-    inputs.unstable.legacyPackages.${pkgs.system}.opencode
-    inputs.unstable.legacyPackages.${pkgs.system}.opencode-desktop
+    inputs.unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.opencode
+    inputs.unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.opencode-desktop
   ];
 }
