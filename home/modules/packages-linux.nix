@@ -40,16 +40,19 @@ in
     cliphist
 
     gopls
+    rustup
     grim
     slurp
     thunar
     satty
     sone
+    inkscape
 
     networkmanagerapplet
     brightnessctl
     qbittorrent
     mpv
+    yt-dlp
     loupe
     cloc
 
