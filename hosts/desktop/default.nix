@@ -27,6 +27,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelParams = [
     "amdgpu.user_queue=0"
+    "amdgpu.vm_update_mode=3"
   ];
 
   networking.hostName = "klar-pc";
